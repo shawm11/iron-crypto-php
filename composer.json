@@ -1,6 +1,6 @@
 {
     "name": "shawm11/iron-crypto",
-    "description": "PHP implementation of the Iron cryptographic utility (https://github.com/hueniverse/iron)",
+    "description": "PHP implementation of the iron cryptographic utility",
     "type": "library",
     "license": "MIT",
     "version": "0.0.0",

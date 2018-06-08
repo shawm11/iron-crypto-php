@@ -193,13 +193,14 @@ Does not return anything.
 `IronOptions` Class
 -------------------
 
-This class does not do anything except contain the default iron options.
+This class does not do anything other than contain the default iron options.
 
 ### `$defaults` Property
 
-Contains the default iron options, which is secure enough for most applications.
-Do not use different options, unless you know what you are doing. See the [Iron
-Options](#iron-options) section if you are not going to use the default options.
+Contains the default set of iron options, which is secure enough for most
+applications. Do not use different options, unless you know what you are doing.
+See the [Iron Options](#iron-options) section if you are not going to use the
+default options.
 
 The default iron options are the following:
 
@@ -244,7 +245,7 @@ contain the following.
         when creating the PBKDF2 derived key used for encryption. If this is
         set, `saltBits` is ignored.
 
-    -   _integer_ `saltBits` — (Required if `salt` is set) Number of bits to
+    -   _integer_ `saltBits` — (Required if `salt` is not set) Number of bits to
         randomly generate to be used as the salt that is used to create the
         PBKDF2 derived key used for encryption.
 
@@ -268,7 +269,7 @@ contain the following.
         when creating the PBKDF2 derived key used to create the HMAC. If this is
         set, `saltBits` is ignored.
 
-    -   _integer_ `saltBits` — (Required if `salt` is set) Number of bits to
+    -   _integer_ `saltBits` — (Required if `salt` is not set) Number of bits to
         randomly generate to be used as the salt that is used to create the
         PBKDF2 derived key used to create the HMAC.
 

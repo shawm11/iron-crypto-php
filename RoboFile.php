@@ -33,7 +33,6 @@ class RoboFile extends \Robo\Tasks
     public function bumpMajor()
     {
         $composerVersion = $this->getComposerVersion();
-        $composerJson = json_decode(file_get_contents('composer.json'), true);
         $composerVersion->inc('major');
         $this->setComposerVersion($composerVersion);
     }
@@ -44,7 +43,6 @@ class RoboFile extends \Robo\Tasks
     public function bumpMinor()
     {
         $composerVersion = $this->getComposerVersion();
-        $composerJson = json_decode(file_get_contents('composer.json'), true);
         $composerVersion->inc('minor');
         $this->setComposerVersion($composerVersion);
     }
@@ -55,7 +53,6 @@ class RoboFile extends \Robo\Tasks
     public function bumpPatch()
     {
         $composerVersion = $this->getComposerVersion();
-        $composerJson = json_decode(file_get_contents('composer.json'), true);
         $composerVersion->inc('patch');
         $this->setComposerVersion($composerVersion);
     }

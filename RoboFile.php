@@ -23,7 +23,8 @@ class RoboFile extends \Robo\Tasks
              ->stopOnFail()
              ->add('.')
              ->commit("chore: bump to version $version", '--no-verify')
-             ->tag("v$version");
+             ->tag("v$version")
+             ->run();
     }
 
     /**

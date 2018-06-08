@@ -1,9 +1,9 @@
 Iron Crypto PHP
 ===============
 
-![Packagist](https://img.shields.io/packagist/v/shawm11/iron-crypto.svg)
-![PHP from Packagist](https://img.shields.io/packagist/php-v/shawm11/iron-crypto.svg)
-![Packagist](https://img.shields.io/packagist/l/shawm11/iron-crypto.svg)
+![Version Number](https://img.shields.io/packagist/v/shawm11/iron-crypto.svg)
+![PHP Version](https://img.shields.io/packagist/php-v/shawm11/iron-crypto.svg)
+[![License](https://img.shields.io/github/license/shawm11/iron-crypto-php.svg)](https://github.com/shawm11/iron-crypto-php/blob/master/LICENSE.md)
 
 A PHP implementation of the 5.x version of the [**iron**](https://github.com/hueniverse/iron)
 cryptographic utility. For more information about iron, read its

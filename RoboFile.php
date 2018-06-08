@@ -224,7 +224,7 @@ class RoboFile extends \Robo\Tasks
     {
         $this->composerJson = json_decode(file_get_contents('composer.json'), true);
 
-        return new version($composerJson['version'] ?? '0.0.0');
+        return new version($this->composerJson['version'] ?? '0.0.0');
     }
 
     /**

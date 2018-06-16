@@ -57,7 +57,6 @@ class Iron implements IronInterface
     public function seal(array $object, $password)
     {
         // Get local time offset
-        // $this->options['localtimeOffsetMsec'] || 0
         $localtimeOffset = (isset($this->options['localtimeOffsetMsec']) && $this->options['localtimeOffsetMsec'])
              ? $this->options['localtimeOffsetMsec']
              : 0;
@@ -128,7 +127,6 @@ class Iron implements IronInterface
     public function unseal($sealed, $password)
     {
         // Get local time offset
-        // $this->options['localtimeOffsetMsec'] || 0
         $localtimeOffset = (isset($this->options['localtimeOffsetMsec']) && $this->options['localtimeOffsetMsec'])
              ? $this->options['localtimeOffsetMsec']
              : 0;
@@ -265,7 +263,7 @@ class Iron implements IronInterface
         // Check if the 'salt' option was not set
         if (!$salt) {
             // Check if the 'saltBits' option was not set or NULL
-            if (!isset($options['saltBits']) || !$options['saltBits']) {
+            if (!(isset($options['saltBits']) && $options['saltBits'])) {
                 throw new IronException('Missing salt or saltBits options');
             }
 
@@ -416,7 +414,7 @@ class Iron implements IronInterface
     {
         // Based on the `base64urlEncode()` function in the Hoek NodeJS library
         if (gettype($data) !== 'string') {
-            throw IronException('Value not a string');
+            throw new IronException('Value not a string');
         }
 
         // Code from http://php.net/manual/en/function.base64-encode.php#103849
@@ -434,7 +432,7 @@ class Iron implements IronInterface
     {
         // Based on the `base64urlDecode()` function in the Hoek NodeJS library
         if (gettype($data) !== 'string') {
-            throw IronException('Value not a string');
+            throw new IronException('Value not a string');
         }
 
         // Also based on the `base64urlDecode()` function in the Hoek NodeJS

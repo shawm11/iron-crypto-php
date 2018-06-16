@@ -26,6 +26,7 @@ class IronTest extends TestCase
     public function testIron()
     {
         $this->describe('Iron class', function () {
+
             $this->it('should be able to seal an array and then parse the sealed string',
                 function () {
                     $iron = new Iron(IronOptions::$defaults);
@@ -129,6 +130,7 @@ class IronTest extends TestCase
     public function testSeal()
     {
         $this->describe('Iron::seal()', function () {
+
             $this->it('should throw an error when the password is missing', function () {
                 $this->assertThrowsWithMessage(IronException::class, 'Empty password', function () {
                     (new Iron(IronOptions::$defaults))->seal($this->object, null);
@@ -146,6 +148,7 @@ class IronTest extends TestCase
     public function testUnseal()
     {
         $this->describe('Iron::unseal()', function () {
+
             $this->it('should throw an error when number of sealed components is wrong', function () {
                 $sealed = 'x*Fe26.2**91f7df7b826113a0bd608408b9b867f1e0cf89d14fc0e6f425c2dae5a2ba41ab' .
                           '*bXNHFmid88Bm-OcCsDaUrA' .
@@ -215,6 +218,7 @@ class IronTest extends TestCase
     public function testGenerateKey()
     {
         $this->describe('Iron::generateKey()', function () {
+
             $this->it('should throw an error when the password is missing', function () {
                 $this->assertThrowsWithMessage(IronException::class, 'Empty password', function () {
                     (new Iron(IronOptions::$defaults))->generateKey(null, IronOptions::$defaults['encryption']);
@@ -296,6 +300,7 @@ class IronTest extends TestCase
     public function testDecrypt()
     {
         $this->describe('Iron::decrypt()', function () {
+
             $this->it('should throw an error when the password is missing', function () {
                 $this->assertThrowsWithMessage(IronException::class, 'Empty password', function () {
                     (new Iron(IronOptions::$defaults))->decrypt(null, IronOptions::$defaults['encryption'], 'data');
@@ -313,6 +318,7 @@ class IronTest extends TestCase
     public function testHmacWithPassword()
     {
         $this->describe('Iron::hmacWithPassword()', function () {
+
             $this->it('should throw an error when the password is missing', function () {
                 $this->assertThrowsWithMessage(IronException::class, 'Empty password', function () {
                     (new Iron(IronOptions::$defaults))

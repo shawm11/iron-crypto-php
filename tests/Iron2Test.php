@@ -26,6 +26,7 @@ class Iron2Test extends TestCase
     public function testIron2()
     {
         $this->describe('Iron2 class', function () {
+
             $this->it('should be able to seal an array and then parse the sealed string',
                 function () {
                     $iron = new Iron2(IronOptions::$defaults);

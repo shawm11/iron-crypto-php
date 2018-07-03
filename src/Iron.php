@@ -57,9 +57,9 @@ class Iron implements IronInterface
     public function seal(array $object, $password)
     {
         // Get local time offset
-        $localtimeOffset = (isset($this->options['localtimeOffsetMsec']) && $this->options['localtimeOffsetMsec'])
-             ? $this->options['localtimeOffsetMsec']
-             : 0;
+        $localtimeOffset = empty($this->options['localtimeOffsetMsec'])
+            ? 0
+            : $this->options['localtimeOffsetMsec'];
         // Measure "now" (in microseconds since Unix epoch) before any other
         // processing
         $now = floor(microtime(true) * 1000) + $localtimeOffset;
@@ -97,9 +97,9 @@ class Iron implements IronInterface
         $iv = $this->base64urlEncode($cipher['key']['iv']);
 
         // Get the expiration date/time (if there is one)
-        $expiration = (isset($this->options['ttl']) && $this->options['ttl'])
-            ? ($now + $this->options['ttl'])
-            : '';
+        $expiration = empty($this->options['ttl'])
+            ? ''
+            : ($now + $this->options['ttl']);
 
         $macBaseString = implode('*', [
             $this->macPrefix,
@@ -127,9 +127,9 @@ class Iron implements IronInterface
     public function unseal($sealed, $password)
     {
         // Get local time offset
-        $localtimeOffset = (isset($this->options['localtimeOffsetMsec']) && $this->options['localtimeOffsetMsec'])
-             ? $this->options['localtimeOffsetMsec']
-             : 0;
+        $localtimeOffset = empty($this->options['localtimeOffsetMsec'])
+            ? 0
+            : $this->options['localtimeOffsetMsec'];
         // Measure "now" (in microseconds since Unix epoch) before any other
         // processing
         $now = floor(microtime(true) * 1000) + $localtimeOffset;
@@ -263,7 +263,7 @@ class Iron implements IronInterface
         // Check if the 'salt' option was not set
         if (!$salt) {
             // Check if the 'saltBits' option was not set or NULL
-            if (!(isset($options['saltBits']) && $options['saltBits'])) {
+            if (empty($options['saltBits'])) {
                 throw new IronException('Missing salt or saltBits options');
             }
 

@@ -62,16 +62,16 @@ Returns an iron sealed string.
 1.  _string_ or _array_ `$password` — (Required) Can be either a password string
     used to generate a key, an associative array that contains:
 
-    -   _string_ `id` — Unique identifier (consisting of only underscores (`_`),
-        letters, and numbers) for the password for when there are multiple
-        possible passwords. Used for password rotation.
+    -   _string_ or _integer_ `id` — Unique identifier (consisting of only
+        underscores (`_`), letters, and numbers) for the password for when there
+        are multiple possible passwords. Used for password rotation.
 
     -   _string_ `secret` — Password string used for both encrypting the object
        and integrity (HMAC creation and verification)
 
     OR
 
-    -   _string_ `id` —  Unique identifier (consisting of only
+    -   _string_ or _integer_ `id` — Unique identifier (consisting of only
         underscores (`_`), letters, and numbers) for the password for when there
         are multiple possible passwords. Used for password rotation.
 

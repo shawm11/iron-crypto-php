@@ -10,7 +10,7 @@ Table of Contents
     -   [`seal($object, $password)`](#sealobject-password)
         - [`seal` Parameters](#seal-parameters)
 
-    -   [`unseal($sealed, $password)`](#unsealsealed-$password)
+    -   [`unseal($sealed, $password)`](#unsealsealed-password)
         - [`unseal` Parameters](#unseal-parameters)
 
     -   [`generateKey($password, $options)`](#generatekeypassword-options)
@@ -31,7 +31,7 @@ Table of Contents
         - [`setOptions` Parameters](#setoptions-parameters)
 
 -   [`IronOptions` Class](#ironoptions-class)
-    - [`$defaults` Property](#defaults-propertyParameters)
+    - [`$defaults` Property](#defaults-property)
 
 -   [`IronException` Class](#ironexception-class)
 
@@ -234,10 +234,9 @@ class.
 Iron Options
 ------------
 
-The iron options set when using the
-[`setOptions()` Method](#setoptionsoptions) or in the
-[constructor](#constructor) when creating a new `Iron` or `Iron2` instance
-contain the following.
+The iron options set when using the [`setOptions()` Method](#setoptionsoptions)
+or in the [constructor](#constructor) when creating a new `Iron` or `Iron2`
+instance contain the following.
 
 -   _array_ `encryption` — (Required) Options for how the data object array is
     encrypted. It contains the following:

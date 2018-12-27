@@ -51,7 +51,7 @@ class Iron implements IronInterface
     public function __construct(array $options)
     {
         $this->setOptions($options);
-        $this->macPrefix = 'Fe26.' . $this->macFormatVersion;
+        $this->macPrefix = "Fe26.{$this->macFormatVersion}";
     }
 
     public function seal(array $object, $password)

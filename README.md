@@ -38,7 +38,7 @@ Getting Started
 ### Prerequisites
 
 - Git 2.9+
-- PHP 5.6.0+
+- PHP 5.5.0+
 - OpenSSL PHP Extension
 - JSON PHP Extension
 - [Composer](https://getcomposer.org/)

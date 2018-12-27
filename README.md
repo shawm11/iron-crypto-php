@@ -3,7 +3,7 @@ Iron Crypto PHP
 
 ![Version Number](https://img.shields.io/packagist/v/shawm11/iron-crypto.svg)
 ![PHP Version](https://img.shields.io/packagist/php-v/shawm11/iron-crypto.svg)
-[![License](https://img.shields.io/github/license/shawm11/iron-crypto-php.svg)](https://github.com/shawm11/iron-crypto-php/blob/master/LICENSE.md)
+[![License](https://img.shields.io/github/license/shawm11/iron-crypto-php.svg)](LICENSE.md)
 
 A PHP implementation of the 5.x version of the [**iron**](https://github.com/hueniverse/iron)
 cryptographic utility. For more information about iron, read its
@@ -64,18 +64,18 @@ the sealed string created using `Iron2` is 2.1 instead of 2 to indicate the
 incompatibility.
 
 Iron strings created using the `Iron` class can be unsealed by other iron
-implementations and it can unseal iron strings from implementations. This is not
-true for the `Iron2` class.
+implementations and it can unseal iron strings from other implementations. This
+is not true for the `Iron2` class.
 
-In summary, use the `Iron` class if:
-
-- unsealing an iron string created by another implementation
-- the sealed iron string created will be unsealed by another implementation
-
-and use the `Iron2` class if:
+In summary, use the `Iron2` class (**RECOMMENDED**) if:
 
 - you need or want a bit more security
 - compatibility with other iron implementations is not important
+
+and use the `Iron` class if:
+
+- unsealing an iron string created by another implementation
+- the sealed iron string created will be unsealed by another implementation
 
 ### Examples
 
@@ -83,7 +83,7 @@ and use the `Iron2` class if:
 <?php
 
 // Here Iron2 is used, but this code works the same way with Iron
-use Shawm11\Iron2;
+use Shawm11\Iron\Iron2;
 use Shawm11\Iron\IronOptions;
 use Shawm11\Iron\IronException;
 

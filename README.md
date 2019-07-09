@@ -5,32 +5,28 @@ Iron Crypto PHP
 ![PHP Version](https://img.shields.io/packagist/php-v/shawm11/iron-crypto.svg)
 [![License](https://img.shields.io/github/license/shawm11/iron-crypto-php.svg)](LICENSE.md)
 
-A PHP implementation of the 5.x version of the [**iron**](https://github.com/hueniverse/iron)
-cryptographic utility. For more information about iron, read its
-[README](https://github.com/hueniverse/iron/blob/master/README.md).
+A PHP implementation of the 5.x version of the [**iron**](https://github.com/hapijs/iron)
+cryptographic utility.
 
 Table of Contents
 -----------------
 
--   [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
+<!--lint disable list-item-spacing-->
 
--   [Usage](#usage)
-    -   [`Iron` vs `Iron2` Classes](#iron-vs-iron2-classes)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+  - [`Iron` vs `Iron2` Classes](#iron-vs-iron2-classes)
+  - [Examples](#examples)
+    - [Password Rotation Example](#password-rotation-example)
+- [API](#api)
+- [Security Considerations](#security-considerations)
+- [Contributing/Development](#contributingdevelopment)
+- [Versioning](#versioning)
+- [License](#license)
 
-    -   [Examples](#examples)
-        - [Password Rotation Example](#password-rotation-example)
-
--   [API](#api)
-
--   [Security Considerations](#security-considerations)
-
--   [Contributing/Development](#contributingdevelopment)
-
--   [Versioning](#versioning)
-
--   [License](#license)
+<!--lint enable list-item-spacing-->
 
 Getting Started
 ---------------
@@ -57,7 +53,7 @@ Usage
 ### `Iron` vs `Iron2` Classes
 
 Either the `Iron` or `Iron2` class can be used to seal or unseal iron strings.
-The `Iron2` class includes a fix for an [issue with PDKDF2](https://github.com/hueniverse/iron/issues/55),
+The `Iron2` class includes a fix for an [issue with PDKDF2](https://github.com/hapijs/iron/issues/55),
 so it is a bit more secure than the `Iron` class. However, the iron strings
 `Iron` and `Iron2` are not compatible with each other. The MAC format version in
 the sealed string created using `Iron2` is 2.1 instead of 2 to indicate the
@@ -195,7 +191,7 @@ See the [API Reference](docs/api-reference.md) for details about the API.
 Security Considerations
 -----------------------
 
-See the [Security Considerations](https://github.com/hueniverse/iron#security-considerations)
+See the [Security Considerations](https://github.com/hapijs/iron#security-considerations)
 section of iron's README.
 
 Contributing/Development
@@ -207,11 +203,10 @@ commit message guidelines, and other development information.
 Versioning
 ----------
 
-This project using [SemVer](http://semver.org/) for versioning. For the versions
+This project uses [SemVer](http://semver.org/) for versioning. For the versions
 available, see the tags on this repository.
 
 License
 -------
 
-This project is open-sourced software licensed under the
-[MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

@@ -4,29 +4,26 @@ Contributing Guidelines
 Table of Contents
 -----------------
 
--   [Testing](#testing)
+<!--lint disable list-item-spacing-->
 
--   [Coding Style](#coding-style)
-    - [PHPDoc](#phpdoc)
+- [Testing](#testing)
+- [Coding Style](#coding-style)
+  - [PHPDoc](#phpdoc)
+- [Commit Message Guidelines](#commit-message-guidelines)
+  - [Message Header](#message-header)
+    - [Subject](#subject)
+    - [Type](#type)
+    - [Scope](#scope)
+    - [Revert](#revert)
+  - [Message Body](#message-body)
+  - [Message Footer](#message-footer)
+    - [Referencing Issues](#referencing-issues)
+  - [Example Commit Messages](#example-commit-messages)
+- [Development Tasks CLI Commands](#development-tasks-cli-commands)
+- [Git Hooks](#git-hooks)
+  - [Installing Hooks](#installing-hooks)
 
--   [Commit Message Guidelines](#commit-message-guidelines)
-    -   [Message Header](#message-header)
-        - [Subject](#subject)
-        - [Type](#type)
-        - [Scope](#scope)
-        - [Revert](#revert)
-
-    -   [Message Body](#message-body)
-
-    -   [Message Footer](#message-footer)
-        - [Referencing Issues](#referencing-issues)
-
-    -   [Example Commit Messages](#example-commit-messages)
-
--   [Development Tasks CLI Commands](#development-tasks-cli-commands)
-
--   [Git Hooks](#git-hooks)
-    - [Installing Hooks](#installing-hooks)
+<!--lint enable list-item-spacing-->
 
 Testing
 -------
@@ -42,10 +39,9 @@ To run all tests, use the following command.
 Coding Style
 ------------
 
-This project follows the [PSR-2 Coding Style
-Guide](https://www.php-fig.org/psr/psr-2/) for PHP code.
-[PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) is used to
-make sure the PHP code adheres to PSR-2. Use the `"./vendor/bin/robo" lint`
+This project follows the [PSR-2 Coding Style Guide](https://www.php-fig.org/psr/psr-2/)
+for PHP code. [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) is
+used to make sure the PHP code adheres to PSR-2. Use the `"./vendor/bin/robo" lint`
 command to find and report coding style errors and warnings in PHP files.
 
 ### PHPDoc
@@ -106,30 +102,24 @@ The `<subject>` contains succinct description of the change:
 #### Type
 The `<type>` must be one of the following:
 
--   **build**: Changes that affect the build system or external dependencies
-    (example scopes: composer, gulp, broccoli, npm)
+<!--lint disable list-item-spacing-->
 
--   **ci**: Changes to our CI configuration files and scripts (example scopes:
-    Travis, Circle, BrowserStack, SauceLabs)
+- **build**: Changes that affect the build system or external dependencies
+  (example scopes: composer, gulp, broccoli, npm)
+- **ci**: Changes to our CI configuration files and scripts (example scopes:
+  Travis, Circle, BrowserStack, SauceLabs)
+- **docs**: Documentation only changes
+- **feat**: A new feature
+- **fix**: A bug fix
+- **perf**: A code change that improves performance
+- **security**: A code change that improves security
+- **refactor**: A code change that neither fixes a bug nor adds a feature
+- **style**: Changes that do not affect the meaning of the code (white-space,
+  formatting, missing semi-colons, etc.)
+- **test**: Adding missing tests or correcting existing tests
+- **chore**: Updating configuration files etc.; no production code change
 
--   **docs**: Documentation only changes
-
--   **feat**: A new feature
-
--   **fix**: A bug fix
-
--   **perf**: A code change that improves performance
-
--   **security**: A code change that improves security
-
--   **refactor**: A code change that neither fixes a bug nor adds a feature
-
--   **style**: Changes that do not affect the meaning of the code (white-space,
-    formatting, missing semi-colons, etc.)
-
--   **test**: Adding missing tests or correcting existing tests
-
--   **chore**: Updating configuration files etc.; no production code change
+<!--lint enable list-item-spacing-->
 
 #### Scope
 
@@ -198,9 +188,9 @@ need the latest of these.
 Development Tasks CLI Commands
 ------------------------------
 
-CLI commands for development and deployment tasks are handled by
-[Robo](https://robo.li/). Use the following command to get a list of available
-Robo commands and their descriptions.
+CLI commands for development and deployment tasks are handled by [Robo](https://robo.li/).
+Use the following command to get a list of available Robo commands and their
+descriptions.
 ```shell
 "./vendor/bin/robo"
 ```
@@ -210,10 +200,9 @@ Git Hooks
 
 The Git hook scripts are stored in the `bin/hooks` directory. Each of the hook
 scripts execute their corresponding Artisan `git:hook-*` command. For example,
-the `bin/hooks/pre-commit` hook script executes
-`"./vendor/bin/robo" git:hook-pre-commit`. This allows the hook logic to be
-written in PHP and handled by Robo, which is compatible with Windows, Mac OS,
-and \*nix systems.
+the `bin/hooks/pre-commit` hook script executes `"./vendor/bin/robo" git:hook-pre-commit`.
+This allows the hook logic to be written in PHP and handled by Robo, which is
+compatible with Windows, Mac OS, and \*nix systems.
 
 ### Installing Hooks
 

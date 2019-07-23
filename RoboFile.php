@@ -10,8 +10,6 @@ use vierbergenlars\SemVer\version;
  */
 class RoboFile extends \Robo\Tasks
 {
-    private $composerJson;
-
     /**
      * The command executed when the Git pre-commit hook is triggered
      */
@@ -76,7 +74,7 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
-     * Bump the version and release to the remote repository master branch
+     * Bump the version and prepare for release
      */
     public function release()
     {

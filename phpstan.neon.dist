@@ -1,9 +1,9 @@
 parameters:
-    level: 5
-    memory: 100M
+    level: 6
     paths:
         - src
         - tests
+    checkMissingIterableValueType: false
     ignoreErrors:
         -
             message: '#Parameter \#[0-9] \$[a-zA-Z0-9]+ of method Shawm11\\Iron\\Iron::[a-zA-Z0-9_]+\(\) expects [a-z|]+#'

@@ -100,6 +100,7 @@ interface IronInterface
      * Set the iron options to the given array
      *
      * @param  array  $options
+     * @return void
      */
     public function setOptions(array $options);
 }

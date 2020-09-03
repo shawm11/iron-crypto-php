@@ -4,6 +4,7 @@ namespace Shawm11\Iron;
 
 class Iron implements IronInterface
 {
+    /** @var array */
     protected $options = [];
 
     /**
@@ -54,6 +55,9 @@ class Iron implements IronInterface
         $this->macPrefix = "Fe26.{$this->macFormatVersion}";
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function seal(array $object, $password)
     {
         // Get local time offset
@@ -77,7 +81,7 @@ class Iron implements IronInterface
         $password = $this->normalizePassword($password);
 
         // Check if the password ID is set
-        if (isset($password['id']) && $password['id'] !== null) {
+        if (isset($password['id']) && !is_null($password['id'])) {
             // Check if the password ID has at least one character that is not a
             // letter, number, or underscore (_)
             if (!preg_match('/^\w+$/', $password['id'])) {
@@ -124,6 +128,9 @@ class Iron implements IronInterface
         return $sealed;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function unseal($sealed, $password)
     {
         // Get local time offset
@@ -184,7 +191,7 @@ class Iron implements IronInterface
         if (is_array($password)) {
             // If no password ID, use default password (if set)
             $passwordIndex = ($passwordId !== '') ? $passwordId : 'default';
-            if (!isset($password[$passwordIndex]) || $password[$passwordIndex] === null) {
+            if (!isset($password[$passwordIndex]) || is_null($password[$passwordIndex])) {
                 throw new IronException('Cannot find password: ' . $passwordId);
             }
 
@@ -226,6 +233,9 @@ class Iron implements IronInterface
         return $object;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function generateKey($password, $options)
     {
         // Check if the password is an empty string
@@ -267,12 +277,22 @@ class Iron implements IronInterface
                 throw new IronException('Missing salt or saltBits options');
             }
 
+            
+            $saltGenerationFailMessage = 'Failed to generate salt';
+            $saltLength = intval(floor($options['saltBits'] / 8));
+            
+            // Check if the length of salt is greater than 0 to prevent an Error
+            // from being thrown in PHP 7+
+            if ($saltLength <= 0) {
+                throw new IronException($saltGenerationFailMessage);
+            }
+            
             // Generate salt
-            $randomSalt = openssl_random_pseudo_bytes(intval(floor($options['saltBits'] / 8)));
+            $randomSalt = openssl_random_pseudo_bytes($saltLength);
 
             // Check if the generation of random bytes failed
             if ($randomSalt === false) {
-                throw new IronException('Failed to generate salt');
+                throw new IronException($saltGenerationFailMessage);
             }
 
             $salt = bin2hex($randomSalt);
@@ -294,9 +314,9 @@ class Iron implements IronInterface
         ];
 
         // Check if the IV in the options are set
-        if (isset($options['iv']) && $options['iv'] !== null) {
+        if (isset($options['iv']) && !is_null($options['iv'])) {
             $result['iv'] = $options['iv'];
-        } elseif (isset($algorithm['ivBits']) && $algorithm['ivBits'] !== null) { // If the algorithm IV bits are set
+        } elseif (isset($algorithm['ivBits']) && !is_null($algorithm['ivBits'])) { // If the algorithm IV bits are set
             $randomIv = openssl_random_pseudo_bytes(intval(floor($algorithm['ivBits'] / 8)));
 
             // Check if generation of random bytes failed
@@ -310,6 +330,9 @@ class Iron implements IronInterface
         return $result;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function encrypt($password, $options, $data)
     {
         // Generate a key using the password and a IV
@@ -333,6 +356,9 @@ class Iron implements IronInterface
         return $cipher;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function decrypt($password, $options, $data)
     {
         $key = $this->generateKey($password, $options);
@@ -351,6 +377,9 @@ class Iron implements IronInterface
         return $decipher;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function hmacWithPassword($password, $options, $data)
     {
         // Generate a key using the password
@@ -365,11 +394,17 @@ class Iron implements IronInterface
         return $result;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setOptions(array $options)
     {
         $this->options = $options;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getOptions()
     {
         return $this->options;
@@ -389,10 +424,10 @@ class Iron implements IronInterface
 
         if (is_array($password)) {
             $obj['id'] = $password['id'];
-            $obj['encryption'] = (isset($password['secret']) && $password['secret'] !== null)
+            $obj['encryption'] = (isset($password['secret']) && !is_null($password['secret']))
                 ? $password['secret']
                 : $password['encryption'];
-            $obj['integrity'] = (isset($password['secret']) && $password['secret'] !== null)
+            $obj['integrity'] = (isset($password['secret']) && !is_null($password['secret']))
                 ? $password['secret']
                 : $password['integrity'];
         } else { // password is a string

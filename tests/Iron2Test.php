@@ -12,6 +12,7 @@ class Iron2Test extends TestCase
     use \Codeception\Specify;
     use \Codeception\AssertThrows;
 
+    /** @var array */
     protected $object = [
         'a' => 1,
         'b' => 2,
@@ -21,8 +22,12 @@ class Iron2Test extends TestCase
         ]
     ];
 
+    /** @var string **/
     protected $password = 'some_not_random_password_that_is_at_least_32_characters';
 
+    /**
+     * @return void
+     */
     public function testIron2()
     {
         $this->describe('Iron2 class', function () {

@@ -12,6 +12,7 @@ class IronTest extends TestCase
     use \Codeception\Specify;
     use \Codeception\AssertThrows;
 
+    /** @var array */
     protected $object = [
         'a' => 1,
         'b' => 2,
@@ -21,8 +22,12 @@ class IronTest extends TestCase
         ]
     ];
 
+    /** @var string **/
     protected $password = 'some_not_random_password_that_is_at_least_32_characters';
 
+    /**
+     * @return void
+     */
     public function testIron()
     {
         $this->describe('Iron class', function () {
@@ -127,6 +132,9 @@ class IronTest extends TestCase
         });
     }
 
+    /**
+     * @return void
+     */
     public function testSeal()
     {
         $this->describe('Iron::seal()', function () {
@@ -145,6 +153,9 @@ class IronTest extends TestCase
         });
     }
 
+    /**
+     * @return void
+     */
     public function testUnseal()
     {
         $this->describe('Iron::unseal()', function () {
@@ -215,6 +226,9 @@ class IronTest extends TestCase
         });
     }
 
+    /**
+     * @return void
+     */
     public function testGenerateKey()
     {
         $this->describe('Iron::generateKey()', function () {
@@ -297,6 +311,9 @@ class IronTest extends TestCase
         });
     }
 
+    /**
+     * @return void
+     */
     public function testDecrypt()
     {
         $this->describe('Iron::decrypt()', function () {
@@ -315,6 +332,9 @@ class IronTest extends TestCase
         });
     }
 
+    /**
+     * @return void
+     */
     public function testHmacWithPassword()
     {
         $this->describe('Iron::hmacWithPassword()', function () {

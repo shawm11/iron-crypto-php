@@ -33,17 +33,17 @@ Table of Contents
 
 ### Constructor
 
-1. _array_ `$options` — (Required) Options for sealing arrays and unsealing iron
-   strings. The default options are not automatically set; this is intentional
-   and according to the iron protocol. Set this to `IronOptions::$defaults` to
-   use the default options. See the [Iron Options](#iron-options) section for
-   more information.
+1. _array_ `$options` — (Required) Options for sealing arrays and unsealing
+   _iron_ strings. The default options are not automatically set; this is
+   intentional and according to the _iron_ protocol. Set this to
+   `IronOptions::$defaults` to use the default options. See the [Iron Options](#iron-options)
+   section for more information.
 
 ### `seal($object, $password)`
 
-Serializes, encrypts, and signs arrays (objects) into an iron string.
+Serializes, encrypts, and signs arrays (objects) into an _iron_ string.
 
-Returns an iron sealed string.
+Returns an _iron_ sealed string.
 
 #### `seal` Parameters
 
@@ -68,14 +68,14 @@ Returns an iron sealed string.
 
 ### `unseal($sealed, $password)`
 
-Verifies, decrypts, and reconstruct an iron protocol string into an array. In
-other words, unseal iron strings created by [`seal()`](#sealobject-password).
+Verifies, decrypts, and reconstruct an _iron_ protocol string into an array. In
+other words, unseal _iron_ strings created by [`seal()`](#sealobject-password).
 
 Returns the data that was sealed as an array.
 
 #### `unseal` Parameters
 
-1. _string_ `$sealed` — (Required) An iron sealed string
+1. _string_ `$sealed` — (Required) An _iron_ sealed string
 1. _string_ or _array_ `$password` — (Required) The password used to seal the
    `$sealed` string. Refer to the `$password` parameter in the [`seal()` Method](#sealobject-password)
    section
@@ -96,7 +96,7 @@ Returns an array that contains the following:
 
 1. _string_ `$password` — (Required) Password used to generate the unique key
 1. _array_ `$options` — (Required) Encryption options. Usually `encryption` the
-   part of the iron options. See the [Iron Options](#iron-options) section for
+   part of the _iron_ options. See the [Iron Options](#iron-options) section for
    more information.
 
 ### `encrypt($password, $options, $data)`
@@ -111,7 +111,7 @@ salt, and IV used to encrypt the data.
 1. _string_ `$password` — (Required) Password used to generate a unique key to
    be used for encryption
 1. _array_ `$options` — (Required) Encryption options. Usually `encryption` the
-   part of the iron options. See the [Iron Options](#iron-options) section for
+   part of the _iron_ options. See the [Iron Options](#iron-options) section for
    more information.
 1. _string_ `$data` — (Required) Data to encrypt
 
@@ -145,39 +145,39 @@ Returns and array with the following:
 1. _string_ `$password` — (Required) Password used to generate a unique key to
    be used for calculating the HMAC
 1. _array_ `$options` — (Required) Integrity options. Usually `integrity` the
-   part of the iron options. See the [Iron Options](#iron-options) section for
+   part of the _iron_ options. See the [Iron Options](#iron-options) section for
    more information.
 1. _string_ `$data` — (Required) Data for which to calculate the HMAC digest
 
 ### `getOptions()`
 
-Get the iron options.
+Get the _iron_ options.
 
-Return an array which are the iron options.
+Return an array which are the _iron_ options.
 
 ### `setOptions($options)`
 
-Set the iron options to the given array.
+Set the _iron_ options to the given array.
 
 Does not return anything.
 
 #### `setOptions` Parameters
 
-- _array_ $options — (Required) Array to which the iron options are to be set
+- _array_ $options — (Required) Array to which the _iron_ options are to be set
 
 `IronOptions` Class
 -------------------
 
-This class does not do anything other than contain the default iron options.
+This class does not do anything other than contain the default _iron_ options.
 
 ### `$defaults` Property
 
-Contains the default set of iron options, which is secure enough for most
+Contains the default set of _iron_ options, which is secure enough for most
 applications. Do not use different options, unless you know what you are doing.
 See the [Iron Options](#iron-options) section if you are not going to use the
 default options.
 
-The default iron options are the following:
+The default _iron_ options are the following:
 
 ```php
 [
@@ -209,7 +209,7 @@ class.
 Iron Options
 ------------
 
-The iron options set when using the [`setOptions()` Method](#setoptionsoptions)
+The _iron_ options set when using the [`setOptions()` Method](#setoptionsoptions)
 or in the [constructor](#constructor) when creating a new `Iron` or `Iron2`
 instance contain the following.
 
@@ -252,7 +252,7 @@ instance contain the following.
       allowed for the integrity password.
 
 -   _integer_ `ttl` — (Optional) Length of time (in milliseconds) the sealed
-    iron string is valid, `0` means forever
+    _iron_ string is valid, `0` means forever
 
 -   _integer_ `timestampSkewSec` — (Required) Permitted clock skew (in seconds)
     for incoming expirations

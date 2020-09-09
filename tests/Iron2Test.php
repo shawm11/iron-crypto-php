@@ -38,7 +38,7 @@ class Iron2Test extends TestCase
                     $sealed = $iron->seal($this->object, $this->password);
                     $unsealed = $iron->unseal($sealed, $this->password);
 
-                    expect($unsealed)->equals($this->object);
+                    expect($unsealed)->toEqual($this->object);
                 }
             );
 
@@ -46,7 +46,7 @@ class Iron2Test extends TestCase
                 $iron = new Iron2(IronOptions::$defaults);
                 $sealed = $iron->seal($this->object, $this->password);
 
-                expect(substr($sealed, 0, 9))->equals('Fe26.2.1*');
+                expect(substr($sealed, 0, 9))->toEqual('Fe26.2.1*');
             });
         });
     }

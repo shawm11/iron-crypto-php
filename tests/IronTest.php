@@ -38,7 +38,7 @@ class IronTest extends TestCase
                     $sealed = $iron->seal($this->object, $this->password);
                     $unsealed = $iron->unseal($sealed, $this->password);
 
-                    expect($unsealed)->equals($this->object);
+                    expect($unsealed)->toEqual($this->object);
                 }
             );
 
@@ -46,7 +46,7 @@ class IronTest extends TestCase
                 $iron = new Iron(IronOptions::$defaults);
                 $sealed = $iron->seal($this->object, $this->password);
 
-                expect(substr($sealed, 0, 7))->equals('Fe26.2*');
+                expect(substr($sealed, 0, 7))->toEqual('Fe26.2*');
             });
 
             $this->it('should be able to seal and unseal an array when the expiration is set',
@@ -59,7 +59,7 @@ class IronTest extends TestCase
                     $sealed = $iron->seal($this->object, $this->password);
                     $unsealed = $iron->unseal($sealed, $this->password);
 
-                    expect($unsealed)->equals($this->object);
+                    expect($unsealed)->toEqual($this->object);
                 }
             );
 
@@ -73,7 +73,7 @@ class IronTest extends TestCase
                     $sealed = $iron->seal($this->object, $this->password);
                     $unsealed = $iron->unseal($sealed, $this->password);
 
-                    expect($unsealed)->equals($this->object);
+                    expect($unsealed)->toEqual($this->object);
                 }
             );
 
@@ -85,7 +85,7 @@ class IronTest extends TestCase
                     $sealed = $iron->seal($this->object, $encryptPassword);
                     $unsealed = $iron->unseal($sealed, $possiblePasswords);
 
-                    expect($unsealed)->equals($this->object);
+                    expect($unsealed)->toEqual($this->object);
                 },
                 [
                     'examples' => [

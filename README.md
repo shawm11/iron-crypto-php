@@ -48,7 +48,7 @@ _iron_ can be considered as an alternative to JSON Web Tokens (JWT). Check out
 [this _iron_ issue](https://github.com/hapijs/iron/issues/30) for a small
 discussion of the difference between _iron_ and JWT.
 
-Note that _iron_ is spelled in all lowercase letters; however, the _i_ is
+Note that _iron_ is often spelled in all lowercase letters; however, the _i_ is
 capitalized in the class names in this package.
 
 Getting Started
@@ -100,7 +100,7 @@ and use the `Iron` class if:
 
 #### Examples of Sealed Iron Strings
 
-Array
+Array to be sealed:
 ```php
 [
     'a' => 1,
@@ -117,7 +117,9 @@ Array
 Password: `some_not_random_password_that_is_at_least_32_characters`
 
 Output:
-`Fe26.2.1**50a5bec38a21775318b487bda8eb5bac8ef0033fa14ab3d7d963643b648fb50a*dZ7cUbgFie4_EKYQ1H1RyA*mclk0QCWDb-irF7E5quIcRa52t4TXmo3Jq1BnJFgVv4dZq9fWnB0CUdRA8bKXIEX**da6bb68d955f9db04e9739a2a197ce9780de56f9be26ba24b7bf145c12851d53*0xYQdFBJxipufS03zBu6VZmIlHClv6CTlCc_To1rbIU`
+```text
+Fe26.2.1**50a5bec38a21775318b487bda8eb5bac8ef0033fa14ab3d7d963643b648fb50a*dZ7cUbgFie4_EKYQ1H1RyA*mclk0QCWDb-irF7E5quIcRa52t4TXmo3Jq1BnJFgVv4dZq9fWnB0CUdRA8bKXIEX**da6bb68d955f9db04e9739a2a197ce9780de56f9be26ba24b7bf145c12851d53*0xYQdFBJxipufS03zBu6VZmIlHClv6CTlCc_To1rbIU
+```
 
 ##### `Iron2::seal()` with password rotation
 
@@ -131,14 +133,19 @@ Passwords:
 ```
 
 Output:
-`Fe26.2.1*2*292e8975ab168c4aff5af0674ae7e49f11307a367e75aee7f5f71063d8132523*QkjFNS0jl7963ENLosY25g*uKNcL7JAlDPURnvMb0C_jHyELe0b84554QcYzeaYWiHI1x0Qwq3Njikf_z_iLYxX**18280c5865db88bd915570325c56f8b6897a3daf710d8a9c9330ead5f392ec4d*ogb2rO5-QiOQk28gfpa3p2PimRM5y015C892SQ_c3y8`
+
+```text
+Fe26.2.1*2*292e8975ab168c4aff5af0674ae7e49f11307a367e75aee7f5f71063d8132523*QkjFNS0jl7963ENLosY25g*uKNcL7JAlDPURnvMb0C_jHyELe0b84554QcYzeaYWiHI1x0Qwq3Njikf_z_iLYxX**18280c5865db88bd915570325c56f8b6897a3daf710d8a9c9330ead5f392ec4d*ogb2rO5-QiOQk28gfpa3p2PimRM5y015C892SQ_c3y8
+```
 
 ##### `Iron::seal()`
 
 Password: `some_not_random_password_that_is_at_least_32_characters`
 
 Output:
-`Fe26.2**6589f8726e6b87f875bd9cbdea1985642d8d2e82168360586cf9cdb46b370fcc*-2XpTXRy5ZL0gJK6Qx9i4Q*hZa7pqt31QIR_ihVZ6qjUv_b0v5KLd1Enhq5q0IjbSfbvnUm_kRDahIC-nAoCsjJ**c74d1c46525da622ddc699c8dabf3902e1f1497bf54e086004fa560d85082e71*1qpfA_ZlR4r5Uo99Py1UU_l7v8lZYjtFI-4QVFYHA1g`
+```text
+Fe26.2**6589f8726e6b87f875bd9cbdea1985642d8d2e82168360586cf9cdb46b370fcc*-2XpTXRy5ZL0gJK6Qx9i4Q*hZa7pqt31QIR_ihVZ6qjUv_b0v5KLd1Enhq5q0IjbSfbvnUm_kRDahIC-nAoCsjJ**c74d1c46525da622ddc699c8dabf3902e1f1497bf54e086004fa560d85082e71*1qpfA_ZlR4r5Uo99Py1UU_l7v8lZYjtFI-4QVFYHA1g
+```
 
 #### Code Example of Common Usage
 
@@ -264,14 +271,13 @@ section of iron's API document.
 Related Projects
 ----------------
 
-- [Oz PHP Implementation](https://github.com/shawm11/oz-auth-php) — PHP
-  implementation of Oz, a web authorization protocol that is an alternative to
-  OAuth 1.0a and OAuth 2.0 three-legged authorization. Oz utilizes both Hawk and
-  iron.
+-   [Oz PHP Implementation](https://github.com/shawm11/oz-auth-php) — Oz is a
+    web authorization protocol that is an alternative to OAuth 1.0a and
+    OAuth 2.0 three-legged authorization. Oz utilizes both Hawk and _iron_.
 
-- [Hawk PHP Implementation](https://github.com/shawm11/hawk-auth-php) — PHP
-  implementation of Hawk, an HTTP authentication scheme that is alternative
-  OAuth 1.0a and OAuth 2.0 two-legged authentication.
+-   [Hawk PHP Implementation](https://github.com/shawm11/hawk-auth-php) — Hawk
+    is an HTTP authentication scheme that is an alternative to OAuth 1.0a and
+    OAuth 2.0 two-legged authentication.
 
 Contributing/Development
 ------------------------

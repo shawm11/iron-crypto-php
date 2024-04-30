@@ -5,7 +5,6 @@ namespace Shawm11\Iron\Tests;
 use PHPUnit\Framework\TestCase;
 use Shawm11\Iron\Iron2;
 use Shawm11\Iron\IronOptions;
-use Shawm11\Iron\IronException;
 
 class Iron2Test extends TestCase
 {

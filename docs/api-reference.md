@@ -1,10 +1,8 @@
-API Reference
-=============
+<!-- omit in toc -->
+# API Reference
 
-Table of Contents
------------------
-
-<!--lint disable list-item-spacing-->
+<!-- omit in toc -->
+## Table of Contents
 
 - [`Iron` and `Iron2` Classes](#iron-and-iron2-classes)
   - [Constructor](#constructor)
@@ -28,8 +26,7 @@ Table of Contents
 - [`IronException` Class](#ironexception-class)
 - [Iron Options](#iron-options)
 
-`Iron` and `Iron2` Classes
---------------------------
+## `Iron` and `Iron2` Classes
 
 ### Constructor
 
@@ -49,7 +46,7 @@ Returns an _iron_ sealed string.
 
 1. _array_ `$object` — (Required) Data to be sealed. Can be any array that can
    serialized using PHP's `json_encode()` function.
-1. _string_ or _array_ `$password` — (Required) Can be either a password string
+2. _string_ or _array_ `$password` — (Required) Can be either a password string
    used to generate a key, an associative array that contains:
    - _string_ or _integer_ `id` — Unique identifier (consisting of only
      underscores (`_`), letters, and numbers) for the password for when there
@@ -76,7 +73,7 @@ Returns the data that was sealed as an array.
 #### `unseal` Parameters
 
 1. _string_ `$sealed` — (Required) An _iron_ sealed string
-1. _string_ or _array_ `$password` — (Required) The password used to seal the
+2. _string_ or _array_ `$password` — (Required) The password used to seal the
    `$sealed` string. Refer to the `$password` parameter in the [`seal()` Method](#sealobject-password)
    section
 
@@ -95,7 +92,7 @@ Returns an array that contains the following:
 #### `generateKey` Parameters
 
 1. _string_ `$password` — (Required) Password used to generate the unique key
-1. _array_ `$options` — (Required) Encryption options. Usually `encryption` the
+2. _array_ `$options` — (Required) Encryption options. Usually `encryption` the
    part of the _iron_ options. See the [Iron Options](#iron-options) section for
    more information.
 
@@ -110,10 +107,10 @@ salt, and IV used to encrypt the data.
 
 1. _string_ `$password` — (Required) Password used to generate a unique key to
    be used for encryption
-1. _array_ `$options` — (Required) Encryption options. Usually `encryption` the
+2. _array_ `$options` — (Required) Encryption options. Usually `encryption` the
    part of the _iron_ options. See the [Iron Options](#iron-options) section for
    more information.
-1. _string_ `$data` — (Required) Data to encrypt
+3. _string_ `$data` — (Required) Data to encrypt
 
 ### `decrypt($password, $options, $data)`
 
@@ -126,9 +123,9 @@ Returns the decrypted data as a string.
 
 1. _string_ `$password` — (Required) Password used for encryption by the `encrypt()`
    method
-1. _array_ `$options` — (Required) Options used for encryption by the `encrypt()`
+2. _array_ `$options` — (Required) Options used for encryption by the `encrypt()`
    method.
-1. _string_ `$data` — (Required) Data to decrypt
+3. _string_ `$data` — (Required) Data to decrypt
 
 ### `hmacWithPassword($password, $options, $data)`
 
@@ -144,10 +141,10 @@ Returns and array with the following:
 
 1. _string_ `$password` — (Required) Password used to generate a unique key to
    be used for calculating the HMAC
-1. _array_ `$options` — (Required) Integrity options. Usually `integrity` the
+2. _array_ `$options` — (Required) Integrity options. Usually `integrity` the
    part of the _iron_ options. See the [Iron Options](#iron-options) section for
    more information.
-1. _string_ `$data` — (Required) Data for which to calculate the HMAC digest
+3. _string_ `$data` — (Required) Data for which to calculate the HMAC digest
 
 ### `getOptions()`
 
@@ -165,8 +162,7 @@ Does not return anything.
 
 - _array_ $options — (Required) Array to which the _iron_ options are to be set
 
-`IronOptions` Class
--------------------
+## `IronOptions` Class
 
 This class does not do anything other than contain the default _iron_ options.
 
@@ -199,68 +195,61 @@ The default _iron_ options are the following:
 ]
 ```
 
-`IronException` Class
----------------------
+## `IronException` Class
 
 All errors thrown by the `Iron` and `Iron2` classes are instances of the
 `IronException` class, which behaves the exact same way as PHP's `Exception`
 class.
 
-Iron Options
-------------
+## Iron Options
 
 The _iron_ options set when using the [`setOptions()` Method](#setoptionsoptions)
 or in the [constructor](#constructor) when creating a new `Iron` or `Iron2`
 instance contain the following.
 
--   _array_ `encryption` — (Required) Options for how the data object array is
-    encrypted. It contains the following:
-    - _string_ `salt`— (Optional) Pre-generated string to be used as the salt
-      when creating the PBKDF2 derived key used for encryption. If this is
-      set, `saltBits` is ignored.
-    - _integer_ `saltBits` — (Required if `salt` is not set) Number of bits to
-      randomly generate to be used as the salt that is used to create the
-      PBKDF2 derived key used for encryption.
-    - _string_ `algorithm` — (Required) Algorithm to use for encryption. The
-      choices when using the `Iron` and `Iron2` classes are `aes-128-ctr` and
-      `aes-256-cbc`.
-    - _integer_ `iterations` — (Required) Number of iterations for deriving a
-      key from the encryption password. The number of ideal iterations depends
-      on your application's performance and security requirements. More
-      iterations means it takes longer to generate the key, but it is less
-      vulnerable to brute-force attacks.
-    - _integer_ `minPasswordlength` — (Required) Minimum number of characters
-      allowed for the encryption password.
+- _array_ `encryption` — (Required) Options for how the data object array is
+  encrypted. It contains the following:
+  - _string_ `salt`— (Optional) Pre-generated string to be used as the salt when
+    creating the PBKDF2 derived key used for encryption. If this is set,
+    `saltBits` is ignored.
+  - _integer_ `saltBits` — (Required if `salt` is not set) Number of bits to
+    randomly generate to be used as the salt that is used to create the PBKDF2
+    derived key used for encryption.
+  - _string_ `algorithm` — (Required) Algorithm to use for encryption. The
+    choices when using the `Iron` and `Iron2` classes are `aes-128-ctr` and
+    `aes-256-cbc`.
+  - _integer_ `iterations` — (Required) Number of iterations for deriving a
+    key from the encryption password. The number of ideal iterations depends
+    on your application's performance and security requirements. More
+    iterations means it takes longer to generate the key, but it is less
+    vulnerable to brute-force attacks.
+  - _integer_ `minPasswordlength` — (Required) Minimum number of characters
+    allowed for the encryption password.
 
--   _array_ `integrity` — (Required) Options for how the encrypted data is
-    transformed into an HMAC so it can verified when the iron string is
-    unsealed. It contains the following:
-    - _string_ `salt`— (Optional) Pre-generated string to be used as the salt
-      when creating the PBKDF2 derived key used to create the HMAC. If this is
-      set, `saltBits` is ignored.
-    - _integer_ `saltBits` — (Required if `salt` is not set) Number of bits to
-      randomly generate to be used as the salt that is used to create the
-      PBKDF2 derived key used to create the HMAC.
-    - _string_ `algorithm` — (Required) Algorithm to use to create the HMAC.
-      The only choice when using the `Iron` and `Iron2` classes is `sha256`.
-    - _integer_ `iterations` — (Required) Number of iterations for deriving a
-      key from the integrity (HMAC) password. The number of ideal iterations
-      depends on your application's performance and security requirements.
-      More iterations means it takes longer to generate the key, but it is
-      less vulnerable to brute-force attacks.
-    - _integer_ `minPasswordlength` — (Required) Minimum number of characters
-      allowed for the integrity password.
-
--   _integer_ `ttl` — (Optional) Length of time (in milliseconds) the sealed
-    _iron_ string is valid, `0` means forever
-
--   _integer_ `timestampSkewSec` — (Required) Permitted clock skew (in seconds)
-    for incoming expirations
-
--   _integer_ `localtimeOffsetMsec` — (Optional) Local clock time offset
-    expressed in a number of milliseconds (positive or negative)
+- _array_ `integrity` — (Required) Options for how the encrypted data is
+  transformed into an HMAC so it can verified when the iron string is
+  unsealed. It contains the following:
+  - _string_ `salt`— (Optional) Pre-generated string to be used as the salt when
+    creating the PBKDF2 derived key used to create the HMAC. If this is
+    set, `saltBits` is ignored.
+  - _integer_ `saltBits` — (Required if `salt` is not set) Number of bits to
+    randomly generate to be used as the salt that is used to create the PBKDF2
+    derived key used to create the HMAC.
+  - _string_ `algorithm` — (Required) Algorithm to use to create the HMAC.
+    The only choice when using the `Iron` and `Iron2` classes is `sha256`.
+  - _integer_ `iterations` — (Required) Number of iterations for deriving a key
+    from the integrity (HMAC) password. The number of ideal iterations depends
+    on your application's performance and security requirements. More iterations
+    means it takes longer to generate the key, but it is less vulnerable to
+    brute-force attacks.
+  - _integer_ `minPasswordlength` — (Required) Minimum number of characters
+    allowed for the integrity password.
+- _integer_ `ttl` — (Optional) Length of time (in milliseconds) the sealed
+  _iron_ string is valid, `0` means forever
+- _integer_ `timestampSkewSec` — (Required) Permitted clock skew (in seconds)
+  for incoming expirations
+- _integer_ `localtimeOffsetMsec` — (Optional) Local clock time offset expressed
+  in a number of milliseconds (positive or negative)
 
 See the [`$defaults` Property](#defaults-property) of the `IronOptions` class
 for an example options array.
-
-<!--lint enable list-item-spacing-->

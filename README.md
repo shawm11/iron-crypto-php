@@ -1,5 +1,5 @@
-Iron Crypto PHP
-===============
+<!-- omit in toc -->
+# Iron Crypto PHP
 
 ![Version Number](https://img.shields.io/packagist/v/shawm11/iron-crypto.svg)
 ![PHP Version](https://img.shields.io/packagist/php-v/shawm11/iron-crypto.svg)
@@ -8,12 +8,10 @@ Iron Crypto PHP
 A PHP implementation of the 6.x version of the [**iron**](https://github.com/hapijs/iron)
 cryptographic utility.
 
-Table of Contents
------------------
+<!-- omit in toc -->
+## Table of Contents
 
-<!--lint disable list-item-spacing-->
-
-- [What is Iron?](#what-is-iron)
+- [What is iron?](#what-is-iron)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -21,8 +19,11 @@ Table of Contents
   - [`Iron` vs `Iron2` Classes](#iron-vs-iron2-classes)
   - [Examples](#examples)
     - [Examples of Sealed Iron Strings](#examples-of-sealed-iron-strings)
+      - [`Iron2::seal()`](#iron2seal)
+      - [`Iron2::seal()` with password rotation](#iron2seal-with-password-rotation)
+      - [`Iron::seal()`](#ironseal)
     - [Code Example of Common Usage](#code-example-of-common-usage)
-    - [Password Rotation Example](#password-rotation-code-example)
+    - [Password Rotation Code Example](#password-rotation-code-example)
 - [API](#api)
 - [Security Considerations](#security-considerations)
 - [Related Projects](#related-projects)
@@ -30,10 +31,7 @@ Table of Contents
 - [Versioning](#versioning)
 - [License](#license)
 
-<!--lint enable list-item-spacing-->
-
-What is iron?
--------------
+## What is iron?
 
 According to the [_iron_ API](https://github.com/hapijs/iron/blob/master/API.md):
 
@@ -51,8 +49,7 @@ discussion of the difference between _iron_ and JWT.
 Note that _iron_ is often spelled in all lowercase letters; however, the _i_ is
 capitalized in the class names in this package.
 
-Getting Started
----------------
+## Getting Started
 
 ### Prerequisites
 
@@ -70,8 +67,7 @@ Download and install using [Composer](https://getcomposer.org/):
 composer require shawm11/iron-crypto
 ```
 
-Usage
------
+## Usage
 
 ### `Iron` vs `Iron2` Classes
 
@@ -101,6 +97,7 @@ and use the `Iron` class if:
 #### Examples of Sealed Iron Strings
 
 Array to be sealed:
+
 ```php
 [
     'a' => 1,
@@ -117,6 +114,7 @@ Array to be sealed:
 Password: `some_not_random_password_that_is_at_least_32_characters`
 
 Output:
+
 ```text
 Fe26.2.1**50a5bec38a21775318b487bda8eb5bac8ef0033fa14ab3d7d963643b648fb50a*dZ7cUbgFie4_EKYQ1H1RyA*mclk0QCWDb-irF7E5quIcRa52t4TXmo3Jq1BnJFgVv4dZq9fWnB0CUdRA8bKXIEX**da6bb68d955f9db04e9739a2a197ce9780de56f9be26ba24b7bf145c12851d53*0xYQdFBJxipufS03zBu6VZmIlHClv6CTlCc_To1rbIU
 ```
@@ -124,6 +122,7 @@ Fe26.2.1**50a5bec38a21775318b487bda8eb5bac8ef0033fa14ab3d7d963643b648fb50a*dZ7cU
 ##### `Iron2::seal()` with password rotation
 
 Passwords:
+
 ```php
 [
     "some_not_random_password_that_is_at_least_32_characters1",
@@ -143,6 +142,7 @@ Fe26.2.1*2*292e8975ab168c4aff5af0674ae7e49f11307a367e75aee7f5f71063d8132523*QkjF
 Password: `some_not_random_password_that_is_at_least_32_characters`
 
 Output:
+
 ```text
 Fe26.2**6589f8726e6b87f875bd9cbdea1985642d8d2e82168360586cf9cdb46b370fcc*-2XpTXRy5ZL0gJK6Qx9i4Q*hZa7pqt31QIR_ihVZ6qjUv_b0v5KLd1Enhq5q0IjbSfbvnUm_kRDahIC-nAoCsjJ**c74d1c46525da622ddc699c8dabf3902e1f1497bf54e086004fa560d85082e71*1qpfA_ZlR4r5Uo99Py1UU_l7v8lZYjtFI-4QVFYHA1g
 ```
@@ -223,7 +223,7 @@ $possiblePasswords = [
     'Something_different42' => 'some_not_random_password_that_is_at_least_32_characters6',
     // The password with the special name of 'default' will be the password that
     // is used if no password ID is specified in an iron string. In other words,
-	// it is the default password.
+    // it is the default password.
     'default' => 'some_not_random_password_that_is_at_least_32_characters'
 ];
 
@@ -257,41 +257,34 @@ try {
 }
 ```
 
-API
----
+## API
 
 See the [API Reference](docs/api-reference.md) for details about the API.
 
-Security Considerations
------------------------
+## Security Considerations
 
 See the [Security Considerations](https://github.com/hapijs/iron/blob/master/API.md#security-considerations)
 section of iron's API document.
 
-Related Projects
-----------------
+## Related Projects
 
--   [Oz PHP Implementation](https://github.com/shawm11/oz-auth-php) — Oz is a
-    web authorization protocol that is an alternative to OAuth 1.0a and
-    OAuth 2.0 three-legged authorization. Oz utilizes both Hawk and _iron_.
+- [Oz PHP Implementation](https://github.com/shawm11/oz-auth-php) — Oz is a web
+  authorization protocol that is an alternative to OAuth 1.0a and OAuth 2.0
+  three-legged authorization. Oz utilizes both Hawk and _iron_.
+- [Hawk PHP Implementation](https://github.com/shawm11/hawk-auth-php) — Hawk is
+  an HTTP authentication scheme that is an alternative to OAuth 1.0a and OAuth
+  2.0 two-legged authentication.
 
--   [Hawk PHP Implementation](https://github.com/shawm11/hawk-auth-php) — Hawk
-    is an HTTP authentication scheme that is an alternative to OAuth 1.0a and
-    OAuth 2.0 two-legged authentication.
-
-Contributing/Development
-------------------------
+## Contributing/Development
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on coding style, Git
 commit message guidelines, and other development information.
 
-Versioning
-----------
+## Versioning
 
 This project uses [SemVer](http://semver.org/) for versioning. For the versions
 available, see the tags on this repository.
 
-License
--------
+## License
 
 This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

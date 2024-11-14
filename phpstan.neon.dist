@@ -7,6 +7,6 @@ parameters:
         -
             identifier: missingType.iterableValue
         -
-            message: '#Parameter \#[0-9] \$[a-zA-Z0-9]+ of method Shawm11\\Hawk\\[a-zA-Z\\]+::[a-zA-Z0-9_]+\(\) expects [a-z|]+#'
-            path: %currentWorkingDirectory%/tests/*
+            message: '#Parameter \#[0-9] \$[a-zA-Z0-9]+ of method Shawm11\\Iron\\Iron::[a-zA-Z0-9_]+\(\) expects [a-z|]+#'
+            path: %currentWorkingDirectory%/tests/IronTest.php
     treatPhpDocTypesAsCertain: false
